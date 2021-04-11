@@ -22,6 +22,6 @@ __THAILAND__\
 ?>
 ```
 \
-\
+
 ### Thanks for first contributor
 Original code by [bossNzXD](https://github.com/bossNzXD)
