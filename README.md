@@ -3,7 +3,7 @@ __ENGLISH__\
 Before use you need to define ``use BossNz\TrueMoneyWallet\Voucher`` and then create an instance of ``Voucher`` If all of that is done you should write your code like below.
 \
 \
-__THAILAND__
+__THAILAND__\
 ก่อนที่จะใช้ให้ท่านทำการเรียกใช้ ``use BossNz\TrueMoneyWallet\Voucher`` แล้วให้สร้างอ็อบเจ็กต์ที่ชื่อ ``Voucher`` ถ้าทำตามทุกขั้นตอนแล้วให้ทำการเขียนโค้ดตามลักษณะโค้ดข้างบนที่เป็นตัวอย่าง สามารถนำไปปรับแต่งหรือประยุกต์ได้ และอย่าลืมให้เครดิตการทำของ Contributor ด้วย
 ```php
 <?php
