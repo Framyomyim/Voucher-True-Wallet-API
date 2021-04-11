@@ -1,7 +1,21 @@
 <?php 
-	// Credit : BossNz
+	/**
+		*
+		* True Money Wallet - API
+		*
+		* This is Open Source PHP Code from @bossNzXD and @Framyomyim
+		*
+		* PHP version 7.3^
+		*
+		* @category		PHP Library
+		* @author		Original Author @bossNzXD (https://github.com/bossNzXD)
+		* @author		Another Author @Framyomyim (https://github.com/Framyomyim)
+		* @version		1.1
+		* @link 		https://github.com/Framyomyim/vouchertruewallet_api
+	*/
 
 	namespace BossNz\TrueMoneyWallet;
+	
 	class Voucher {
 		private $_phoneNumber;
 		private $_voucherHash;
@@ -9,6 +23,11 @@
 		const INPUT_PHONE_TYPE = 'TrueMoneyWalletPhoneNumber';
 		const INPUT_VOUCHER_TYPE = 'TrueMoneyWalletVoucherHash';
 
+		/** 
+			* @method setUser
+			* @param array $arrayData | User Data (Phone, VoucherHash)
+			* @return true & null
+		*/
 		public function setUser(array $arrayData) {
 			if(isset($arrayData[self::INPUT_PHONE_TYPE]) && isset($arrayData[self::INPUT_VOUCHER_TYPE])) {
 				$this->_phoneNumber = $arrayData[self::INPUT_PHONE_TYPE];
@@ -49,6 +68,10 @@
 			return response;
 		}
 
+		/** 
+			* @method redeem
+			* @return array (status, info, others if success)
+		*/
 		public function redeem() {
 			$response = $this->createRequest();
 			$result = json_decode($response);
@@ -83,7 +106,6 @@
 				$message['status'] = "error";
 				$message['info'] = "ลิ้งอั๋งเปาไม่ถูกต้อง";
 			}
-			
 			return $message;
 		}
 	}
