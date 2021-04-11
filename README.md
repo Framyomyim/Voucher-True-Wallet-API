@@ -8,7 +8,7 @@ Before use you need to define ``use BossNz\TrueMoneyWallet\Voucher`` and then cr
     $instanceOfClass = new Voucher; // create an instance
     
     $phone = "your phone number"; // true money wallet number
-    $voucher = "invite voucher"; // link invite voucher
+    $voucher = "invite voucher"; // invite voucher hash
     $instanceOfClass->setUser([
         $instanceOfClass::INPUT_PHONE_TYPE      =>  $phone,
         $instanceOfVoucher::INPUT_VOUCHER_TYPE  =>  $voucher
