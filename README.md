@@ -1,5 +1,10 @@
 # Library | Voucher True Money Wallet - API
+__ENGLISH__\
 Before use you need to define ``use BossNz\TrueMoneyWallet\Voucher`` and then create an instance of ``Voucher`` If all of that is done you should write your code like below.
+\
+__THAILAND__\
+### การใช้งานไลบรารีย์ | อั่งเปาทรูมันนี่วอลเล็ท API
+ก่อนที่จะใช้ให้ท่านทำการเรียกใช้ ``use BossNz\TrueMoneyWallet\Voucher`` แล้วให้สร้างอ็อบเจ็กต์ที่ชื่อ ``Voucher`` ถ้าทำตามทุกขั้นตอนแล้วให้ทำการเขียนโค้ดตามลักษณะโค้ดข้างบนที่เป็นตัวอย่าง สามารถนำไปปรับแต่งหรือประยุกต์ได้ และอย่าลืมให้เครดิตการทำของ Contributor ด้วย
 ```php
 <?php
     use BossNz\TrueMoneyWallet\Voucher; // Use namespace
@@ -16,6 +21,3 @@ Before use you need to define ``use BossNz\TrueMoneyWallet\Voucher`` and then cr
     $instanceOfClass->redeem(); // actions and give you a result
 ?>
 ```
-
-### การใช้งานไลบรารีย์ | อั่งเปาทรูมันนี่วอลเล็ท API
-ก่อนที่จะใช้ให้ท่านทำการเรียกใช้ ``use BossNz\TrueMoneyWallet\Voucher`` แล้วให้สร้างอ็อบเจ็กต์ที่ชื่อ ``Voucher`` ถ้าทำตามทุกขั้นตอนแล้วให้ทำการเขียนโค้ดตามลักษณะโค้ดข้างบนที่เป็นตัวอย่าง สามารถนำไปปรับแต่งหรือประยุกต์ได้ และอย่าลืมให้เครดิตการทำของ Contributor ด้วย
