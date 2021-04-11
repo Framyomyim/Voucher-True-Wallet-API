@@ -1,7 +1,8 @@
 <?php 
-//Credit : BossNz
-class twgiftcode{
-	public function redeem($phone,$voucher_hash){
+// Credit : BossNz
+namespace BossNz\TrueMoneyWallet;
+class Voucher {
+	public function redeem($phone, $voucher_hash){
 		$curl = curl_init();
 		curl_setopt_array($curl, array(
 			CURLOPT_URL => 'https://gift.truemoney.com/campaign/vouchers/'.$voucher_hash.'/redeem',
@@ -32,13 +33,13 @@ class twgiftcode{
 			if ($codestatus == "VOUCHER_OUT_OF_STOCK") {
 				$message['status'] = "error";
 				$message['info'] = "อั๋งเปานี้ถูกใช้งานไปแล้ว";
-			}elseif ($codestatus == "VOUCHER_NOT_FOUND") {
+			} elseif ($codestatus == "VOUCHER_NOT_FOUND") {
 				$message['status'] = "error";
 				$message['info'] = "ไม่พบอั๋งเปานี้!!";
-			}elseif ($codestatus == "VOUCHER_EXPIRED"){
+			} elseif ($codestatus == "VOUCHER_EXPIRED"){
 				$message['status'] = "error";
 				$message['info'] = "อั๋งเปาหมดอายุ!!";
-			}elseif ($codestatus == "SUCCESS"){
+			} elseif ($codestatus == "SUCCESS"){
 				$balance = $result->data->voucher;
 				$ownerprofile = $result->data->owner_profile;
 				if ($balance->amount_baht == $balance->redeemed_amount_baht) {
@@ -46,15 +47,15 @@ class twgiftcode{
 					$message['info'] = "เติมเงินสำเร็จ!!";
 					$message['amount_baht'] = $balance->redeemed_amount_baht;
 					$message['voucher_owner'] = $ownerprofile->full_name;
-				}else{
+				} else {
 					$message['status'] = "error";
 					$message['info'] = "กรุณาแบ่งอั๋งเปาแค่1คน!!";
 				}
-			}else{
+			} else {
 				$message['status'] = "error";
 				$message['info'] = "ไม่ทราบสาเหตุ!!";
 			}
-		}else{
+		} else {
 			$message['status'] = "error";
 			$message['info'] = "ลิ้งอั๋งเปาไม่ถูกต้อง";
 		}
