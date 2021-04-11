@@ -21,7 +21,7 @@ __THAILAND__\
     $instanceOfClass->redeem(); // actions and give you a result
 ?>
 ```
-\
+
 
 ### Thanks for first contributor
 Original code by [bossNzXD](https://github.com/bossNzXD)
