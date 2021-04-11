@@ -9,6 +9,10 @@ Before use you need to define ``use BossNz\TrueMoneyWallet\Voucher`` and then cr
     
     $phone = "your phone number"; // true money wallet number
     $voucher = "invite voucher"; // link invite voucher
-    $instanceOfClass->redeem($phone, $voucher); // actions and give you a result
+    $instanceOfClass->setUser([
+        $instanceOfClass::INPUT_PHONE_TYPE      =>  $phone,
+        $instanceOfVoucher::INPUT_VOUCHER_TYPE  =>  $voucher
+    ]);
+    $instanceOfClass->redeem(); // actions and give you a result
 ?>
 ```
