@@ -16,7 +16,7 @@ __THAILAND__\
     $voucher = "invite voucher"; // invite voucher hash
     $instanceOfClass->setUser([
         $instanceOfClass::INPUT_PHONE_TYPE      =>  $phone,
-        $instanceOfClass::INPUT_VOUCHER_TYPE    =>  $voucher
+        $instanceOfClass::INPUT_VOUCHER_HASH    =>  $voucher
     ]);
     $instanceOfClass->redeem(); // actions and give you a result
 ?>
