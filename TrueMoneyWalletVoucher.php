@@ -21,7 +21,7 @@
 		private $_voucherHash;
 
 		const INPUT_PHONE_TYPE = 'TrueMoneyWalletPhoneNumber';
-		const INPUT_VOUCHER_TYPE = 'TrueMoneyWalletVoucherHash';
+        const INPUT_VOUCHER_HASH = 'TrueMoneyWalletVoucherHash';
 
 		/** 
 			* @method setUser
@@ -29,7 +29,7 @@
 			* @return true & null
 		*/
 		public function setUser(array $arrayData) {
-			if(isset($arrayData[self::INPUT_PHONE_TYPE]) && isset($arrayData[self::INPUT_VOUCHER_TYPE])) {
+			if(isset($arrayData[self::INPUT_PHONE_TYPE]) && isset($arrayData[self::INPUT_VOUCHER_HASH])) {
 				$this->_phoneNumber = $arrayData[self::INPUT_PHONE_TYPE];
 				$this->_voucherHash = $arrayData[self::INPUT_VOUCHER_HASH];
 
@@ -65,7 +65,7 @@
 			$response = curl_exec($curl);
 			curl_close($curl);
 
-			return response;
+			return $response;
 		}
 
 		/** 
@@ -79,32 +79,32 @@
 				$codeStatus = $result->status->code;
 				if ($codeStatus == "VOUCHER_OUT_OF_STOCK") {
 					$message['status'] = "error";
-					$message['info'] = "อั๋งเปานี้ถูกใช้งานไปแล้ว";
+					$message['info'] = "It is used";
 				} elseif ($codeStatus == "VOUCHER_NOT_FOUND") {
 					$message['status'] = "error";
-					$message['info'] = "ไม่พบอั๋งเปานี้!!";
+					$message['info'] = "Not found";
 				} elseif ($codeStatus == "VOUCHER_EXPIRED"){
 					$message['status'] = "error";
-					$message['info'] = "อั๋งเปาหมดอายุ!!";
+					$message['info'] = "It is expired";
 				} elseif ($codeStatus == "SUCCESS"){
 					$balance = $result->data->voucher;
 					$ownerProfile = $result->data->owner_profile;
 					if ($balance->amount_baht == $balance->redeemed_amount_baht) {
 						$message['status'] = "success";
-						$message['info'] = "เติมเงินสำเร็จ!!";
+						$message['info'] = "Transaction successful";
 						$message['amount_baht'] = $balance->redeemed_amount_baht;
 						$message['voucher_owner'] = $ownerProfile->full_name;
 					} else {
 						$message['status'] = "error";
-						$message['info'] = "กรุณาแบ่งอั๋งเปาแค่1คน!!";
+						$message['info'] = "Please share with only one person";
 					}
 				} else {
 					$message['status'] = "error";
-					$message['info'] = "ไม่ทราบสาเหตุ!!";
+					$message['info'] = "Does'nt know cause";
 				}
 			} else {
 				$message['status'] = "error";
-				$message['info'] = "ลิ้งอั๋งเปาไม่ถูกต้อง";
+				$message['info'] = "Your link is wrong";
 			}
 			return $message;
 		}
